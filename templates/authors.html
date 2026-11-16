@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>✍️ Authors & Publishers (LEFT JOIN, JOIN)</h2>
+
+<h3>(a) All Authors & Book Counts (Including 0 Books)</h3>
+<table>
+    <tr><th>Author Name</th><th>Books Written</th></tr>
+    {% for a in authors_book_count %}
+    <tr>
+        <td>{{ a.author_name }}</td>
+        <td>{{ a.book_count }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h3>(b) Books Where Author & Publisher Share Country</h3>
+<table>
+    <tr><th>Book Title</th><th>Author Name</th><th>Publisher Name</th><th>Shared Country</th></tr>
+    {% for b in same_country_books %}
+    <tr>
+        <td>{{ b.title }}</td>
+        <td>{{ b.author_name }}</td>
+        <td>{{ b.publisher_name }}</td>
+        <td>{{ b.country }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

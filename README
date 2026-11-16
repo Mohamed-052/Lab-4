@@ -1,0 +1,24 @@
+# Library Management System (Lab 4 - Part II)
+
+This repository contains the complete implementation for Part II of Lab 4, featuring a relational MySQL database schema, seed data, standalone analytical queries, and a secure Flask web application interface.
+
+## Project Structure
+
+```text
+├── problem2_DDL.sql          # Database schema creation and table definitions
+├── problem2_DML.sql          # Seed data covering minimum rows and edge cases
+├── problem2_Queries.sql      # Standalone SQL queries for features F2.1 through F2.6
+└── website/                  # Flask Web Application
+    ├── app.py                # Flask backend and route handlers
+    ├── .env                  # Local environment configuration variables
+    ├── .env.example          # Public environment configuration template
+    ├── .gitignore            # Git ignore rules for sensitive files
+    ├── requirements.txt      # Python dependencies list
+    └── templates/            # HTML views (Jinja2 templates)
+        ├── base.html         # Base navigation layout
+        ├── search.html       # F2.1 Book search with prepared statements
+        ├── catalogue.html    # F2.2 Full book catalogue (JOIN)
+        ├── reports.html      # F2.3 Library aggregate reports (GROUP BY, HAVING)
+        ├── loans.html        # F2.4 Loans and borrowing audit (JOIN, LEFT JOIN)
+        ├── analytics.html    # F2.5 Most borrowed analytics (ORDER BY, LIMIT)
+        └── authors.html      # F2.6 Authors and publishers (LEFT JOIN, JOIN)

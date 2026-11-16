@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>📋 Loans & Borrowing Audit (JOIN, LEFT JOIN)</h2>
+
+<h3>(a) Active Loans (Not Returned Yet)</h3>
+<table>
+    <tr><th>Loan ID</th><th>Book Title</th><th>Borrower Name</th><th>Loan Date</th></tr>
+    {% for l in active_loans %}
+    <tr>
+        <td>{{ l.loan_id }}</td>
+        <td>{{ l.book_title }}</td>
+        <td>{{ l.member_name }}</td>
+        <td>{{ l.loan_date }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h3>(b) Members Who Never Borrowed Any Books</h3>
+<table>
+    <tr><th>Member ID</th><th>Name</th><th>Email</th></tr>
+    {% for m in no_loan_members %}
+    <tr>
+        <td>{{ m.member_id }}</td>
+        <td>{{ m.member_name }}</td>
+        <td>{{ m.email }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h3>(c) Books That Were Never Borrowed</h3>
+<table>
+    <tr><th>Book ID</th><th>Title</th></tr>
+    {% for b in unborrowed_books %}
+    <tr>
+        <td>{{ b.book_id }}</td>
+        <td>{{ b.title }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

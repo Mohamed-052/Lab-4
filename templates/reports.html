@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>📊  Library Reports (GROUP BY, HAVING)</h2>
+
+<h3>(a) Category Overview</h3>
+<table>
+    <tr><th>Category Name</th><th>Total Books</th><th>Average Price</th></tr>
+    {% for c in category_stats %}
+    <tr>
+        <td>{{ c.category_name }}</td>
+        <td>{{ c.total_books }}</td>
+        <td>${{ "%.2f"|format(c.average_price or 0) }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h3>(b) Authors With &ge; 2 Books</h3>
+<table>
+    <tr><th>Author Name</th><th>Total Books Written</th></tr>
+    {% for a in top_authors %}
+    <tr>
+        <td>{{ a.author_name }}</td>
+        <td>{{ a.book_count }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h3>(c) Library Financial Summary</h3>
+<p><strong>Total Value:</strong> ${{ "%.2f"|format(library_stats.total_price) }}</p>
+<p><strong>Lowest Book Price:</strong> ${{ "%.2f"|format(library_stats.min_price) }}</p>
+<p><strong>Highest Book Price:</strong> ${{ "%.2f"|format(library_stats.max_price) }}</p>
+{% endblock %}
